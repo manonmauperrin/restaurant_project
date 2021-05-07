@@ -1,5 +1,8 @@
 <?php
 
+spl_autoload_register(function ($DataBase) {
+    include $DataBase . '.php';
+});
 
 
 //index.php?page=jeu
@@ -9,7 +12,7 @@ session_start();
 include "controllers/AccueilController.php";
 include "controllers/LogInController.php";
 
-// include 'models/Database.php';
+include 'models/Database.php';
 // include "models/Admin.php";
 // include "models/Booking.php";
 // include "models/Category.php";
