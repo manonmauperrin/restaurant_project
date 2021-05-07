@@ -22,11 +22,17 @@ abstract class Database
 	}
 	
 	
-	public function findOne(string $req,array $params = []):array
+	public function findOne(string $req,array $params = []):?array
 	{
 		$query = $this -> bdd -> prepare($req);
 		$query -> execute($params);
-		return $query -> fetch(\PDO::FETCH_ASSOC);
+		$result =  $query -> fetch(\PDO::FETCH_ASSOC);
+		
+		if($result == false)
+		{
+			return null;
+		}
+		else
+		return $result;
 	}
-	
 }

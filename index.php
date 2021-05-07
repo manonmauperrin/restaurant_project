@@ -2,14 +2,15 @@
 
 
 
+
 //index.php?page=jeu
 session_start();
 
-
-include "controllers/AccueilController.php";
-include "controllers/LogInController.php";
-
-// include 'models/Database.php';
+spl_autoload_register(function($class)
+{
+	include str_replace("\\","/", lcfirst($class)) . '.php';
+});
+// include 'models/DataBase.php';
 // include "models/Admin.php";
 // include "models/Booking.php";
 // include "models/Category.php";

@@ -5,9 +5,8 @@ namespace Models;
 class Users extends Database
 {
 	//les méthodes qui effectuent des requêtes SQL sur la table JEUX
-	public function getUsersByIdentifiant($email):array
+	public function getUsersByEmail($email):array
 	{
-		return $this -> findOne("SELECT id, password, email, nom, prenom FROM admin WHERE email = ?", $email);
+		return $this -> findOne("SELECT id, password, email, lastName, firstName, phone FROM users WHERE email = ?", [$email]);
 	}
-
 }
