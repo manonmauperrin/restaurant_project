@@ -4,10 +4,20 @@ namespace Controllers;
 
 class LogInController
 {
+	//déclarer une propriété dans une classe
+	private $message;
+	
+	public function __construct()
+	{
+		if(!empty($_POST))
+        {
+        	$this -> check();
+        }
+    	$this -> message = "";
+	}
 	public function display()
 	{
 		//méthode qui permet d'afficher la page d'accueil
-		
 		
 		//appeler la vue 
 		
@@ -26,43 +36,40 @@ class LogInController
         // }
         
         //soumission du formulaire de connexion
-        if(!empty($_POST))
-        {
-        	include 'models/admin.php';
-        	
-        	$email = $_POST['email'];
-        	$pw = $_POST['pw'];
-        	
-        	//comparer avec ce que j'ai en bdd
-        	
-        	//aller chercher les infos de l'utilisateur/iden qui essaye de se connecter
-        	$admin = getAdminByEmail($email);
-        	
-        	//si l'identifiant existe dans la base alors âdmin contiendra les infos de cet admin
-        	
-        	//sinon $admin contiendra false
-        	
-        	if(!$admin)
-        	{
-        		$message = "Mauvais identifiant";
-        	}
-        	else
-        	{
-        		//vérifier le mot de passe
-        		if(password_verify($pw,$admin['password']))
-        		{
-        			//le mot de passe correcpond
-        			//connecter l'utilisateur
-        			$_SESSION['admin'] = $admin['prenom'].' '.$admin['nom'];
-        			//redirige vers la page tableau de bord du backoffice
-        			header('location:index.php?page=autre');
-        			exit;
-        		}
-        		else
-        		{
-        			$message = "Mauvais mot de passe";
-        		}
-        	}
-        }
+    	include 'models/admin.php';
+    	
+    	$email = $_POST['email'];
+    	$pw = $_POST['pw'];
+    	
+    	$model = new \Models\Admin();
+    	
+    	//aller chercher les infos de l'utilisateur/iden qui essaye de se connecter
+    	$admin = $model -> getAdminByEmail($email);
+    	
+    	//si l'identifiant existe dans la base alors âdmin contiendra les infos de cet admin
+    	
+    	//sinon $admin contiendra false
+    	
+    	if(!$admin)
+    	{
+    		$this -> message = "Mauvais email";
+    	}
+    	else
+    	{
+    		//vérifier le mot de passe
+    		if(password_verify($pw,$admin['password']))
+    		{
+    			//le mot de passe correcpond
+    			//connecter l'utilisateur
+    			$_SESSION['admin'] = $admin['prenom'].' '.$admin['nom'];
+    			//redirige vers la page tableau de bord du backoffice
+    			header('location:index.php?page=autre');
+    			exit;
+    		}
+    		else
+    		{
+    			$this -> message = "Mauvais mot de passe";
+    		}
+    	}
     }
 }
