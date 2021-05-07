@@ -14,26 +14,22 @@ class LogInController
         {
         	$this -> check();
         }
+        
+        if(isset($_SESSION['admin']) || isset($_SESSION['users']))
+		{
+			header('location:index.php');
+			exit;
+		}
 	}
 	public function display()
 	{
-		//méthode qui permet d'afficher la page d'accueil
-		
-		//appeler la vue 
-		
 		$template = "views/connectForm.phtml";
 		include 'views/layout.phtml';
+		//appeler la vue 
 	}
 	
 	public function check()
     {
-        // if(isset($_GET['action']) && $_GET['action'] == 'deco')
-        // {
-        // 	//je déconnecte l'utilisateur
-        // 	session_destroy();
-        // 	header('location:index.php');
-        // 	exit;
-        // }
         
         //soumission du formulaire de connexion
     	include './models/Admin.php';

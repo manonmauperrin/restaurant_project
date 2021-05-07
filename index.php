@@ -10,16 +10,6 @@ spl_autoload_register(function($class)
 {
 	include str_replace("\\","/", lcfirst($class)) . '.php';
 });
-// include 'models/DataBase.php';
-// include "models/Admin.php";
-// include "models/Booking.php";
-// include "models/Category.php";
-// include "models/Config.php";
-// include "models/Meal.php";
-// include "models/Menus.php";
-// include "models/OpeningHour.php";
-// include "models/Slider.php";
-// include "models/Users.php";
 
 //ACCUEIL
 //index.php?page=accueil OU index.php
@@ -36,18 +26,18 @@ if(isset($_GET['page']))
 		    $controller = new Controllers\LogInController();
 	        $controller -> display();
 			break;
-		case 'admin':
-		    $controller = new Controllers\AdminController();
-	        $controller -> display();
-			break;
-		case 'users':
-		    $controller = new Controllers\UsersController();
-	        $controller -> display();
-			break;
-		// case 'BackOffice':
+		// case 'admin':
 		//     $controller = new Controllers\BackOfficeController();
 	 //       $controller -> display();
 		// 	break;
+		case 'book':
+		    $controller = new Controllers\BookController();
+	        $controller -> display();
+			break;
+		case 'backOffice':
+		    $controller = new Controllers\BackOfficeController();
+	        $controller -> display();
+			break;
 		default:
 			include 'controllers/accueil.php';
 	}
@@ -57,5 +47,6 @@ else
 {
 	//Afficher la page d'accueil
 	$controller = new Controllers\AccueilController();
+	$controller -> checkLog();
 	$controller -> display();
 }
