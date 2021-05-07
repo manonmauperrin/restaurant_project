@@ -9,11 +9,11 @@ class LogInController
 	
 	public function __construct()
 	{
+		$this -> message = "";
 		if(!empty($_POST))
         {
         	$this -> check();
         }
-    	$this -> message = "";
 	}
 	public function display()
 	{
@@ -36,7 +36,7 @@ class LogInController
         // }
         
         //soumission du formulaire de connexion
-    	include 'models/admin.php';
+    	include './models/Admin.php';
     	
     	$email = $_POST['email'];
     	$pw = $_POST['pw'];
@@ -63,7 +63,7 @@ class LogInController
     			//connecter l'utilisateur
     			$_SESSION['admin'] = $admin['prenom'].' '.$admin['nom'];
     			//redirige vers la page tableau de bord du backoffice
-    			header('location:index.php?page=autre');
+    			header('location:index.php');
     			exit;
     		}
     		else
