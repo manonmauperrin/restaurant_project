@@ -38,6 +38,10 @@ if(isset($_GET['page']))
 		    $controller = new Controllers\BackOfficeController();
 	        $controller -> display();
 			break;
+		case 'menus':
+			$controller = new Controllers\ListeMenusController();
+			break;
+
 		default:
 			include 'controllers/accueil.php';
 	}

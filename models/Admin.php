@@ -2,7 +2,7 @@
 
 namespace Models;
 
-class Admin extends DataBase
+class Admin extends Database
 {
 	//les méthodes qui effectuent des requêtes SQL sur la table JEUX
 	public function getAdminByEmail(string $email):?array

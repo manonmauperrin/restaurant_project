@@ -7,3 +7,6 @@ RewriteEngine on
 RewriteRule ^login$  index.php?page=login [L]
 RewriteRule ^Back-Office$  index.php?page=backOffice [L]
 RewriteRule ^Book$  index.php?page=book [L]
+RewriteRule ^menus$ index.php?page=menus [L]
+RewriteRule ^Create-Menu$ index.php?page=menus&action=create [L]
+RewriteRule ^UpdateMenu-([0-9]+)$ index.php?page=menus&action=update&id=$1 [L]
