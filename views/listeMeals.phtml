@@ -1,0 +1,26 @@
+<main class="container">
+    <table>
+	    <caption>Liste des plats</caption>
+    	<thead>
+            <tr>
+                <th>Nom du plat</th>
+                <th>Modifier</th>
+                <th>Supprimer</th>
+            </tr>
+        </thead>
+    	
+    	<tbody>
+        	<tr>
+        	    <?php foreach($meals as $meal): ?>
+                    <tr>
+                        <td><?= htmlspecialchars($meal['name']) ?></td>
+                        <td><a href="UpdateMeal-<?= $meal['id'] ?>"><i class="fas fa-pen-nib"></i></a></td>
+                        <td><a href="index.php?page=meals&action=delete&id=<?= htmlspecialchars($meal['id']) ?>" class="destroy"><i class="fas fa-trash-alt"></i></a></td>
+                    </tr>
+                <?php endforeach; ?>
+
+            </tr>
+        </tbody>
+    </table>
+    <a href="Create-Meal">Ajouter un nouveau plat</a>
+</main>

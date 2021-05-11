@@ -1,8 +1,5 @@
 <?php
 
-
-
-
 //index.php?page=jeu
 session_start();
 
@@ -37,6 +34,12 @@ if(isset($_GET['page']))
 		case 'backOffice':
 		    $controller = new Controllers\BackOfficeController();
 	        $controller -> display();
+			break;
+		case 'menus':
+			$controller = new Controllers\ListeMenusController();
+			break;
+		case 'meals':
+			$controller = new Controllers\ListeMealsController();
 			break;
 		default:
 			include 'controllers/accueil.php';

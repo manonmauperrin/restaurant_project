@@ -35,4 +35,10 @@ abstract class Database
 		else
 		return $result;
 	}
+	
+	public function query(string $req,array $params = [])
+	{
+		$query = $this -> bdd -> prepare($req);
+		$query -> execute($params);
+	}
 }
