@@ -4,14 +4,11 @@ namespace Controllers;
 
 class BackOfficeController 
 {
+    use SessionController;
+    
     public  function __construct()
     {
-        $this -> session = new SessionController();
-        if($this -> session -> isAdmin() == false)
-        {
-            header('location:index.php');
-        	exit;
-        }
+        $this -> redirectIfNotAdmin();
     }
     public function display()
 	{

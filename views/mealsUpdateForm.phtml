@@ -1,0 +1,29 @@
+<main>
+    <h1><?= (isset($meal))?"Modification":"Ajout" ?> d'un plat</h1>
+	<!-- sipas d'attribut action, par défaut, la soumission du formulaire fait un rechargement de la même page-->
+	<form method="post" enctype="multipart/form-data" action="">
+		<p>
+			<label for='title'>Nom du plat</label>
+			<input type="text" name="title" id="title" value="<?= (isset($meal))?$meal['name']:"" ?>">
+		</p>
+		<p>
+			<label for='src'>Image</label>
+			<img src="<?= (isset($meal))?$meal['src']:"" ?>" alt="<?= (isset($meal))?$meal['alt']:"" ?>">
+			<input type="file" name="src" id="src">
+			<input type="hidden" name="oldSrc" value="<?= (isset($meal))?$meal['src']:"" ?>">
+		</p>
+		<p>
+			<label for='alt'>Texte alternatif de l'image</label>
+			<input type="text" name="alt" id="alt" value="<?= (isset($meal))?$meal['alt']:"" ?>">
+		</p>
+		<p>
+			<label for='idCategory'>Catégorie du plat</label>
+			<select type="text" name="idCategory" id="idCategory">
+			    <?php foreach($categories as $cat): ?>
+                    <option value="<?= $cat['id'] ?>"<?= (isset($meal)&&$cat['id']==$meal['idCategory'])?"selected":"" ?>><?= $cat['name'] ?></option>
+                <?php endforeach; ?>
+			</select>
+		</p>
+		<button type="submit"><?= (isset($meal))?"Modifier":"Créer" ?> le plat</button>
+	</form>
+</main>

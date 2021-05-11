@@ -1,0 +1,29 @@
+<main class="container">
+    <table>
+	    <caption>Liste des menus</caption>
+    	<thead>
+            <tr>
+                <th>Nom du Menu</th>
+                <th>Prix du menu</th>
+                <th>Modifier</th>
+                <th>Supprimer</th>
+            </tr>
+        </thead>
+    	
+    	<tbody>
+        	<tr>
+        	    <?php foreach($menus as $menu): ?>
+                    <tr>
+                        <td><?= htmlspecialchars($menu['title']) ?></td>
+                        <td><?= htmlspecialchars($menu['price']) ?></td>
+                        <td><?= htmlspecialchars($menu['name']) ?></td>
+                        <td><a href="UpdateMenu-<?= $menu['id'] ?>"><i class="fas fa-pen-nib"></i></a></td>
+                        <td><a href="index.php?page=menus&action=delete&id=<?= htmlspecialchars($menu['id']) ?>" class="destroy"><i class="fas fa-trash-alt"></i></a></td>
+                    </tr>
+                <?php endforeach; ?>
+
+            </tr>
+        </tbody>
+    </table>
+    <a href="Create-Menu">Ajouter un nouveau menu</a>
+</main>
