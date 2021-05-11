@@ -12,59 +12,24 @@
 	</section>
 	<section class="menu">
 		<h2>Special menus</h2>
-		<article>
-			<h3>Meat menu</h3>
-			<figure>
-				<img src="assets/img/meat-menu.jpg" alt="plate with red meat">
-				<figcaption>17 $<br>
-					<span>soft drinks and desert included</span>
-					<span>+ taxes</span>
-				</figcaption>
-			</figure>
-			<ul>
-				<li><i class="fas fa-star"></i>Lorem ipsum dolor sit.</li>
-				<li><i class="fas fa-star"></i>Dolorem est fuga possimus.</li>
-				<li><i class="fas fa-star"></i>Iste aperiam facere reprerit.</li>
-				<li><i class="fas fa-star"></i>Amet consectur aperiam iusto.</li>
-				<li><i class="fas fa-star"></i>Ipsa autem accusam ducimus.</li>
-			</ul>
-			<a href="menus.html" class="details"><img src="assets/img/fork-knife.svg" alt="">See more</a>
-		</article>
-		<article>
-			<h3>Fish menu</h3>
-			<figure>
-				<img src="assets/img/fish-menu.jpg" alt="Plate with shrimps and rice">
-				<figcaption>19 $<br>
-					<span>soft drinks and desert included</span>
-					<span>+ taxes</span>
-				</figcaption>
-			</figure>
-			<ul>
-				<li><i class="fas fa-star"></i>Lorem ipsum libero consectur.</li>
-				<li><i class="fas fa-star"></i>Quas aperiam pariatur.</li>
-				<li><i class="fas fa-star"></i>Minus dolorum obcaecati vero.</li>
-				<li><i class="fas fa-star"></i>Maxime nihil deleniti commodi.</li>
-				<li><i class="fas fa-star"></i>Soluta vitae odio nesciunt.</li>
-			</ul>
-			<a href="menus.html" class="details"><img src="assets/img/fork-knife.svg" alt="">See more</a>
-		</article>
-		<article>
-			<h3>Vegetarian menu</h3>
-			<figure>
-				<img src="assets/img/vegetarian-menu.jpg" alt="colorfull vegetarian plate">
-				<figcaption>18 $<br>
-					<span>soft drinks and desert included</span>
-					<span>+ taxes</span>
-				</figcaption>
-			</figure>
-			<ul>
-				<li><i class="fas fa-star"></i>Lorem ipsum consectetur.</li>
-				<li><i class="fas fa-star"></i>Expedita pariatur voluptas.</li>
-				<li><i class="fas fa-star"></i>Incidunt perferendis delectus.</li>
-				<li><i class="fas fa-star"></i>Voluptabus deserut nostrum.</li>
-				<li><i class="fas fa-star"></i>Iste assuma laboriosam numq.</li>
-			</ul>
-			<a href="menus.html" class="details"><img src="assets/img/fork-knife.svg" alt="">See more</a>
-		</article>
+		
+		<?php foreach($menus as $menu): ?>
+			<article>
+				<h3><?= htmlspecialchars($menu['name']) ?></h3>
+				<figure>
+					<img src="<?= htmlspecialchars($menu['src']) ?>" alt="<?= htmlspecialchars($menu['alt']) ?>">
+					<figcaption><?= htmlspecialchars($menu['price']) ?> $<br>
+						<span><?= htmlspecialchars($menu['description']) ?></span>
+						<span>+ taxes</span>
+					</figcaption>
+				</figure>
+				<ul>
+					<?php foreach($this -> getMealByMenu($menu['idCategory']) as $meal): ?>
+						<li><i class="fas fa-star"></i><?= htmlspecialchars($meal['name']) ?></li>
+					<?php endforeach; ?>
+				</ul>
+				<a href="index.php?page=accueilMenus&id=<?= htmlspecialchars($menu['id']) ?>" class="details"><img src="assets/img/fork-knife.svg" alt="">See more</a>
+			</article>
+		<?php endforeach; ?>
 	</section>
 </main>

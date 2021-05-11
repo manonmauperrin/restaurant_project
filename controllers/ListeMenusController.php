@@ -3,16 +3,20 @@
 namespace Controllers;
 
 class ListeMenusController
-{
+{   
+    use SessionController;
+    
     public  function __construct()
     {
-        $this -> session = new SessionController();
+        $this -> redirectIfNotAdmin();
+
+        // $this -> session = new SessionController();
         
-        if($this -> session -> isAdmin() == false)
-        {
-            header('location:index.php');
-        	exit;
-        }
+        // if($this -> session -> isAdmin() == false)
+        // {
+        //     header('location:index.php');
+        // 	exit;
+        // }
         
         if(isset($_GET['action']) && $_GET['action'] == 'create')
         {
@@ -107,7 +111,7 @@ class ListeMenusController
         //appeller la vue
         $model = new \Models\Category();
         
-        $categories = $model -> getAllCategories();
+        $categories = $model -> getMealsCategories();
         
         $template = "menusUpdateForm.phtml";
         include 'views/layout.phtml';

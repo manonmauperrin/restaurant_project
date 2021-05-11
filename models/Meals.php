@@ -10,6 +10,12 @@ class Meals extends Database
         INNER JOIN category ON meal.idCategory = category.id ");
     }
     
+    public function getMealsByCategory(int $id):array
+    {
+        return $this -> findAll("SELECT meal.id, meal.name, src, alt, idCategory FROM meal
+        WHERE idCategory = ?", [$id]);
+    }
+    
     public function getMealById(int $id):array
     {
         return $this -> findOne("SELECT id, name, src, alt, idCategory FROM meal where id=?", [$id]);

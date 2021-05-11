@@ -5,15 +5,12 @@ namespace Controllers;
 
 class ListeMealsController
 {
+    use SessionController;
+    
     public  function __construct()
     {
-        $this -> session = new SessionController();
-        
-        if($this -> session -> isAdmin() == false)
-        {
-            header('location:index.php');
-        	exit;
-        }
+        $this -> redirectIfNotAdmin();
+
         if(isset($_GET['action']) && $_GET['action'] == 'create')
         {
             $this -> displayForm();
@@ -107,7 +104,7 @@ class ListeMealsController
         //appeller la vue
         $model = new \Models\Category();
         
-        $categories = $model -> getAllCategories();
+        $categories = $model -> getMealsCategories();
         
         $template = "mealsUpdateForm.phtml";
         include 'views/layout.phtml';

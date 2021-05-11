@@ -23,6 +23,9 @@ if(isset($_GET['page']))
 		    $controller = new Controllers\LogInController();
 	        $controller -> display();
 			break;
+		case 'signUp':
+			$controller = new Controllers\SignUpController();
+			break;
 		// case 'admin':
 		//     $controller = new Controllers\BackOfficeController();
 	 //       $controller -> display();
@@ -40,6 +43,9 @@ if(isset($_GET['page']))
 			break;
 		case 'meals':
 			$controller = new Controllers\ListeMealsController();
+			break;
+		case 'categories':
+			$controller = new Controllers\ListeCategoriesController();
 			break;
 		default:
 			include 'controllers/accueil.php';
