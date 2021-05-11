@@ -5,19 +5,12 @@ class AccueilController
 {
 	public function display()
 	{
-		//méthode qui permet d'afficher la page d'accueil
-		
-		
-		
 		//appeler la vue 
-		
 		$template = "views/accueil.phtml";
 		include 'views/layout.phtml';
 	}
 	
-	
-	
-    public function check()
+    public function checkLog()
     {
         if(isset($_GET['action']) && $_GET['action'] == 'deco')
         {

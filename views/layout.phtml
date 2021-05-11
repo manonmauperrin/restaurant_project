@@ -30,13 +30,16 @@
 					<li><a href="menus.html">Menus</a></li>
 					<li><a href="contact.html">Contact</a></li>
 					<?php if(!isset($_SESSION['admin']) && !isset($_SESSION['users'])): ?>
-					    <li><a href="index.php?page=login">Log In</a></li>
+					    <li><a href="login">Log In</a></li>
 					<?php endif; ?>
 					<?php if(isset($_SESSION['admin'])): ?>
-					    <li><a href="index.php?page=BackOffice">Back Office</a></li>
+					    <li><a href="Back-Office">Back Office</a></li>
 				    <?php endif; ?>
 				    <?php if(isset($_SESSION['users'])): ?>
-					    <li><a href="index.php?page=ReservForm">Réservation</a></li>
+					    <li><a href="Book">Réservation</a></li>
+				    <?php endif; ?>
+				    <?php if(isset($_SESSION['admin']) || isset($_SESSION['users'])): ?>
+					    <li><a href="index.php?action=deco">Log Out</a></li>
 				    <?php endif; ?>
 					
 				</ul>

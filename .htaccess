@@ -1,0 +1,9 @@
+# activation de la réécriture d'urls
+Options +FollowSymlinks
+RewriteEngine on
+
+
+# un commentaire
+RewriteRule ^login$  index.php?page=login [L]
+RewriteRule ^Back-Office$  index.php?page=backOffice [L]
+RewriteRule ^Book$  index.php?page=book [L]
