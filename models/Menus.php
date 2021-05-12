@@ -7,6 +7,7 @@ class Menus extends Database
     public function getAllMenus():array
     { //Peut être des inner/left JOIN à faire avec la table category
         return $this -> findAll("SELECT menus.id, title, src, alt, price, name, idCategory, description FROM menus
+
         INNER JOIN category ON menus.idCategory = category.id");
     }
     

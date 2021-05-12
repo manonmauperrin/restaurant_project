@@ -41,12 +41,14 @@ if(isset($_GET['page']))
 		case 'menus':
 			$controller = new Controllers\ListeMenusController();
 			break;
+
 		case 'meals':
 			$controller = new Controllers\ListeMealsController();
 			break;
 		case 'categories':
 			$controller = new Controllers\ListeCategoriesController();
 			break;
+
 		default:
 			include 'controllers/accueil.php';
 	}

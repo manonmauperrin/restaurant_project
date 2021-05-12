@@ -21,6 +21,7 @@ class ListeMenusController
         if(isset($_GET['action']) && $_GET['action'] == 'create')
         {
             $this -> displayForm();
+
         }
         else if(isset($_GET['action']) && $_GET['action'] == 'update')
         {
@@ -53,6 +54,7 @@ class ListeMenusController
         exit;
     }
 
+
     public function display()
     {
         //appeller la vue
@@ -60,6 +62,7 @@ class ListeMenusController
         
         $menus = $model -> getAllMenus();
         
+
         $template = "views/listeMenus.phtml";
         include 'views/layout.phtml';
     }

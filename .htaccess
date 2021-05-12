@@ -8,6 +8,7 @@ RewriteRule ^login$  index.php?page=login [L]
 RewriteRule ^signUp$  index.php?page=signUp [L]
 RewriteRule ^Back-Office$  index.php?page=backOffice [L]
 RewriteRule ^Book$  index.php?page=book [L]
+<<<<<<< HEAD
 
 RewriteRule ^menus$ index.php?page=menus [L]
 RewriteRule ^Create-Menu$ index.php?page=menus&action=create [L]
@@ -20,3 +21,8 @@ RewriteRule ^UpdateMeal-([0-9]+)$ index.php?page=meals&action=update&id=$1 [L]
 RewriteRule ^categories$ index.php?page=categories [L]
 RewriteRule ^Create-Category$ index.php?page=categories&action=create [L]
 RewriteRule ^UpdateCategory-([0-9]+)$ index.php?page=categories&action=update&id=$1 [L]
+=======
+RewriteRule ^menus$ index.php?page=menus [L]
+RewriteRule ^Create-Menu$ index.php?page=menus&action=create [L]
+RewriteRule ^UpdateMenu-([0-9]+)$ index.php?page=menus&action=update&id=$1 [L]
+>>>>>>> 97f8ee1ff7b2ed2d23be14d246b0712c47a003d7
