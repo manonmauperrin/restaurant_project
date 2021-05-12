@@ -9,6 +9,11 @@ class Category extends Database
         return $this -> findAll("SELECT id, name, isDish, description from category WHERE isDish = 1");
     }
     
+    public function getOthersCategories():array
+    { //Peut être des inner/left JOIN à faire avec la table category
+        return $this -> findAll("SELECT id, name, isDish, description from category WHERE isDish = 0");
+    }
+    
     public function getCategoryById(int $id):array
     {
         return $this -> findOne("SELECT id, name, isDish, description FROM category where id=?", [$id]);

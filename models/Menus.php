@@ -39,4 +39,6 @@ class Menus extends Database
     return $this -> query("DELETE FROM menus 
     	WHERE id = ?", [$id]);
     }
+    
+    
 }

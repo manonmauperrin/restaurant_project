@@ -6,8 +6,15 @@ class Meals extends Database
 {
     public function getAllMeals():array
     {
-        return $this -> findAll("SELECT meal.id, meal.name, src, alt, idCategory FROM meal
+        return $this -> findAll("SELECT meal.id, meal.name, src, alt, idCategory, category.name as cName FROM meal
         INNER JOIN category ON meal.idCategory = category.id ");
+    }
+    
+    public function getMealsIsDish():array
+    {
+        return $this -> findAll("SELECT meal.id, meal.name, src, alt, idCategory, category.name as cName FROM meal
+        INNER JOIN category ON meal.idCategory = category.id
+        WHERE isDish = 1");
     }
     
     public function getMealsByCategory(int $id):array
