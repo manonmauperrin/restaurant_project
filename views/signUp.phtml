@@ -1,0 +1,35 @@
+<main>
+	<form method="post">
+		<p>
+			<label for='lastName'>Nom</label>
+			<input type="text" name="lastName" id="lastName" required value="<?= $lastName ?>">
+		</p>
+		<p>
+			<label for='firstName'>Prénom</label>
+			<input type="text" name="firstName" id="firstName" required value="<?= $firstName ?>">
+		</p>
+		
+		<p>
+			<label for='email'>Email</label>
+			<input type="email" name="email" id="email" required value="<?= $email ?>">
+		</p>
+		
+		<p>
+			<label for='tel'>Téléphone</label>
+			<input type="tel" name="tel" id="tel" value="<?= $tel ?>">
+		</p>
+		
+		<p>
+			<label for='pw'>Mot de passe</label>
+			<input type="password" name="pw" id="pw" required>
+		</p>
+		
+		<p>
+			<label for='confirmPw'>Confirmation du mot de passe</label>
+			<input type="password" name="confirmPw" id="confirmPw" required>
+		</p>
+		<p style="color:red; font-weight:bold;"><?= $this -> message ?></p>
+		
+		<button>S'inscrire</button>
+	</form>
+</main>

@@ -1,0 +1,26 @@
+<main class="container">
+    <table>
+	    <caption>Liste des catégories</caption>
+    	<thead>
+            <tr>
+                <th>Nom des catégories</th>
+                <th>Modifier</th>
+                <th>Supprimer</th>
+            </tr>
+        </thead>
+    	
+    	<tbody>
+        	<tr>
+        	    <?php foreach($categories as $cat): ?>
+                    <tr>
+                        <td><?= htmlspecialchars($cat['name']) ?></td>
+                        <td><a href="UpdateCategory-<?= $cat['id'] ?>"><i class="fas fa-pen-nib"></i></a></td>
+                        <td><a href="index.php?page=categories&action=delete&id=<?= htmlspecialchars($cat['id']) ?>" class="destroy"><i class="fas fa-trash-alt"></i></a></td>
+                    </tr>
+                <?php endforeach; ?>
+
+            </tr>
+        </tbody>
+    </table>
+    <a href="Create-Category">Ajouter une nouvelle catégorie</a>
+</main>

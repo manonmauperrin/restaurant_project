@@ -1,0 +1,22 @@
+<main>
+    <h1><?= (isset($category))?"Modification":"Ajout" ?> d'une catégorie</h1>
+	<!-- sipas d'attribut action, par défaut, la soumission du formulaire fait un rechargement de la même page-->
+	<form method="post" enctype="multipart/form-data" action="">
+		<p>
+			<label for='title'>Nom de la catégorie</label>
+			<input type="text" name="title" id="title" value="<?= (isset($category))?$category['name']:"" ?>">
+		</p>
+		<p>
+			<label for='desc'>Description</label>
+			<input type="text" name="desc" id="desc" value="<?= (isset($category))?$category['description']:"" ?>">
+		</p>
+		<p>
+			<label for='isDish'>Type de plat</label>
+			<label for='isDish'>Plat principal</label><input type="radio" name="isDish" id="isDish" value="1" <?= (isset($category) && $category['isDish'] == 1)?"checked":"" ?>>
+			<label for='isNotDish'>Plat secondaire</label><input type="radio" name="isDish" id="isNotDish" value="0" <?= (isset($category) && $category['isDish'] == 0)?"checked":"" ?>>
+			
+
+		</p>
+		<button type="submit"><?= (isset($category))?"Modifier":"Créer" ?> la catégorie</button>
+	</form>
+</main>
