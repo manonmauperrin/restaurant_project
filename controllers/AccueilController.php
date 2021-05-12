@@ -2,7 +2,7 @@
 //utilisation pour eviter les conflits avec autoloader
 namespace Controllers;
 
-class AccueilController
+class AccueilController extends LayOutController
 {
     //methode d'affichage template de base
 	public function display()

@@ -1,0 +1,13 @@
+<main>
+    <h1>Modifier les horaires d'ouverture</h1>
+	<!-- sipas d'attribut action, par défaut, la soumission du formulaire fait un rechargement de la même page-->
+	<form method="post">
+	    <?php foreach($hours as $hour): ?>
+		<p>
+			<label for='<?= $hour['days'] ?>'><?= $hour['days'] ?></label>
+			<input type="text" name="<?= $hour['days'] ?>" id="<?= $hour['days'] ?>" value="<?= $hour['hours'] ?>">
+		</p>
+		<?php endforeach; ?>
+
+		<button type="submit">Enregistrer les modifs</button>
+	</form>

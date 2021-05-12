@@ -56,10 +56,9 @@
 				<aside>
 					<h4>Opening hours</h4>
 					<ul>
-						<li>Monday: Closed</li>
-						<li>Tue-Wed : 9am - 10pm</li>
-						<li>Thu-Fri : 9am - 10pm</li>
-						<li>Sat-Sun : 5pm - 10pm</li>
+						<?php for($i=0; $i<count($this -> table); $i++): ?>
+							<li><?= $this -> table[$i]['texte'] ?> : <?= $this -> table[$i]['horaire'] ?></li>
+						<?php endfor; ?>
 					</ul>
 				</aside>
 				<aside>

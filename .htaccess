@@ -20,3 +20,5 @@ RewriteRule ^UpdateMeal-([0-9]+)$ index.php?page=meals&action=update&id=$1 [L]
 RewriteRule ^categories$ index.php?page=categories [L]
 RewriteRule ^Create-Category$ index.php?page=categories&action=create [L]
 RewriteRule ^UpdateCategory-([0-9]+)$ index.php?page=categories&action=update&id=$1 [L]
+
+RewriteRule ^hour$ index.php?page=hour [L]

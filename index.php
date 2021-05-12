@@ -26,16 +26,16 @@ if(isset($_GET['page']))
 		case 'signUp':
 			$controller = new Controllers\SignUpController();
 			break;
-		// case 'admin':
-		//     $controller = new Controllers\BackOfficeController();
-	 //       $controller -> display();
-		// 	break;
 		case 'book':
 		    $controller = new Controllers\BookController();
 	        $controller -> display();
 			break;
 		case 'backOffice':
 		    $controller = new Controllers\BackOfficeController();
+	        $controller -> display();
+			break;
+		case 'hour':
+		    $controller = new Controllers\OpeningHourController();
 	        $controller -> display();
 			break;
 		case 'menus':
@@ -63,4 +63,5 @@ else
 	$controller = new Controllers\AccueilController();
 	$controller -> checkLog();
 	$controller -> display();
+	
 }
